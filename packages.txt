@@ -1,0 +1,17 @@
+libnss3
+libatk1.0-0
+libatk-bridge2.0-0
+libdrm2
+libxkbcommon0
+libgbm1
+libasound2
+libxcomposite1
+libxdamage1
+libxfixes3
+libxrandr2
+libpango-1.0-0
+libcairo2
+libatspi2.0-0
+libwayland-client0
+libwayland-egl1
+libwayland-server0
