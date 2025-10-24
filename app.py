@@ -5,6 +5,28 @@ import io, os, re, time, zipfile, random, tempfile
 from typing import List, Tuple
 from urllib.parse import urljoin, urlparse
 
+
+# --- Ensure Playwright Chromium is available ---
+import subprocess, sys, os
+
+def ensure_playwright_browser():
+    env = os.environ.copy()
+    # Use a local cache to avoid permission issues on Streamlit Cloud
+    env.setdefault("PLAYWRIGHT_BROWSERS_PATH", "0")
+    try:
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            # try launching to confirm binary exists
+            p.chromium.launch(headless=True).close()
+    except Exception:
+        subprocess.check_call(
+            [sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"],
+            env=env
+        )
+
+ensure_playwright_browser()
+
+
 import streamlit as st
 from bs4 import BeautifulSoup
 from playwright.sync_api import (
