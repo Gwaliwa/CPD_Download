@@ -22,3 +22,8 @@ libxshmfence1
 ttf-freefont
 fonts-noto
 fonts-noto-cjk
+libxml2
+libxslt1.1
+cloudscraper==1.2.71
+lxml==5.2.1
+
